@@ -6,14 +6,16 @@ namespace Employee_Management.Controllers
 {
     public class HomeController : Controller
     {
-        public IEmployee Empyee { get; }
+        public IEmployee Employee { get; }
 
-        public HomeController(IEmployee empyee)
+        public HomeController(IEmployee employee)
         {
-            Empyee = empyee;
+            Employee = employee;
         }
+
         public IActionResult Index()
         {
+            var employee = Employee.GetEmployeeList();
             return View();
         }
 

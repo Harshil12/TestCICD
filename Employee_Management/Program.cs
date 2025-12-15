@@ -9,10 +9,12 @@ builder.Services.AddControllersWithViews();
 // 1. Get connection string from appsettings.json
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+
 // 2. Register DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
+builder.Services.AddScoped<IEmployee, EmployeeSQLRepository>();
 
 
 var app = builder.Build();

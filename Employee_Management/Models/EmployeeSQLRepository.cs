@@ -33,7 +33,7 @@ namespace Employee_Management.Models
 
         public IReadOnlyList<EmployeeModel> GetEmployeeList()
         {
-            return Context.Employees.ToList();
+            return Context.Employees.Take(100).ToList();
         }
 
         public EmployeeModel UpdateEmployee(EmployeeModel employee)
